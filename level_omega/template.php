@@ -200,6 +200,10 @@ function level_omega_preprocess_block(&$vars, $hook) {
       && $vars['block']->delta == 'company_description') {
          $vars['extra_classes'] = ($vars['block']->empty_company_description) ? 'company_description_empty' : '';
   }
+  
+  if($vars['block']->module == 'level_profiles') {
+    $vars['extra_classes'] = 'block_help_text block_content_' . md5($vars['content']);
+  }
 }
 
 function level_omega_preprocess_views_view_field(&$vars, $hook) {
@@ -405,6 +409,15 @@ function level_omega_linkedin_auth_display_login_block_button($display = NULL, $
     'class' => $class,
   );
   return theme('item_list', $items);
+}
+
+
+function level_omega_preprocess_appointment_field(&$variables) {
+  // If field is witheld then change value to 'register to view'
+  if ($variables['field']['#withheld'] == TRUE) {
+    $variables['field']['#attributes']['class'] .= ' field_register_to_view';
+    $variables['field']['#value'] = 'Register to view';
+  }
 }
 
 /* Theme function for the Global Toolbar */

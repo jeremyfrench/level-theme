@@ -109,5 +109,5 @@ $(document).ready(function() {
       content: 'This field is only available to registered users. Please <a href="/user/login">login</a> or <a href="/register">register</a> in order to see this information, or to claim your own profile.',
     });
   });
-
+ $('.block_help_text').append('APPEND');
 });
