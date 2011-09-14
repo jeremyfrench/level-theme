@@ -200,9 +200,9 @@ function level_omega_preprocess_block(&$vars, $hook) {
       && $vars['block']->delta == 'company_description') {
          $vars['extra_classes'] = ($vars['block']->empty_company_description) ? 'company_description_empty' : '';
   }
-  
-  if($vars['block']->module == 'level_profiles') {
-    $vars['extra_classes'] = 'block_help_text block_content_' . md5($vars['content']);
+  // Set the block md5 so that the content of the block can be tracked with javascript
+  if($vars['block']->module == 'level_profiles' && $vars['block']->delta == 'company_profile_help') {
+    $vars['extra_classes'] = 'block_help_text block_content_' . md5($vars['block']->content);
   }
 }
 

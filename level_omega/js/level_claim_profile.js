@@ -109,5 +109,28 @@ $(document).ready(function() {
       content: 'This field is only available to registered users. Please <a href="/user/login">login</a> or <a href="/register">register</a> in order to see this information, or to claim your own profile.',
     });
   });
- $('.block_help_text').append('APPEND');
+
+   
+ $('.block_help_text')
+ .append(
+		 $('<h3>')
+		 .text('hide this message')
+		 .click(
+		  function() {
+			  /*alert('foo');*/
+			  var cookie_name = '__' + $('.block_help_text').attr('class').match(/block_content_[0-9a-f]*/);
+			  document.cookie = cookie_name + '=1; expires=2 Aug 2030 01:01:11 UTC; path=/';
+			  $('.block_help_text').slideUp('slow');
+			  /* set the cookie and hide the element */
+		  }		 
+		 )
+  );
+ 
+	 var block_hash = $('.block_help_text').attr('class').match(/block_content_[0-9a-f]*/);
+     var search=new RegExp(block_hash);
+ 	 if(!search.test(document.cookie)) {
+	   $('.block_help_text').slideDown('slow');	 
+	 }
+ 
+
 });
