@@ -426,6 +426,7 @@ function level_omega_global_toolbar($vars) {
   $output = '<div id="global-links-left">'.
               $vars['links']['my_profile'].
               $vars['links']['my_account'].
+              $vars['links']['monitor'].
             '</div>'.
 
             _level_omega_get_level_tagging_block().

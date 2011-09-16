@@ -110,11 +110,9 @@ $(document).ready(function() {
     });
   });
 
-   
- $('.block_help_text')
- .append(
-		 $('<h3>')
-		 .text('hide this message')
+ if($('.block_help_text').length) {  
+ $('a.hide_promo')
+ 
 		 .click(
 		  function() {
 			  /*alert('foo');*/
@@ -123,14 +121,12 @@ $(document).ready(function() {
 			  $('.block_help_text').slideUp('slow');
 			  /* set the cookie and hide the element */
 		  }		 
-		 )
   );
- 
-	 var block_hash = $('.block_help_text').attr('class').match(/block_content_[0-9a-f]*/);
+ 	 var block_hash = $('.block_help_text').attr('class').match(/block_content_[0-9a-f]*/);
      var search=new RegExp(block_hash);
  	 if(!search.test(document.cookie)) {
 	   $('.block_help_text').slideDown('slow');	 
 	 }
- 
+  }
 
 });
