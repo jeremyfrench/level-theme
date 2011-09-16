@@ -1394,6 +1394,11 @@ body.front 	#block-level_user-user_login_logout_links {
   color: #21AAE9;
   float: left;
 }
+
+#block-views-d2a5830eb7ed82ff47f3bdf289b6ab03  .views-row {
+	border-bottom: none;
+}
+
 div .company-details-view .field-content, div .company-details-view .company-details-label {
     font-size: 1em;
     line-height: 0.8em;
